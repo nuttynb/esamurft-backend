@@ -1,0 +1,17 @@
+<web-app>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/SpringConfig.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>protobufServlet</servlet-name>
+        <servlet-class>hu.esamu.rft.esamurft.servlet.ProtobufServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>protobufServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>
