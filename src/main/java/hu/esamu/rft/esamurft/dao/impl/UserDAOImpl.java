@@ -15,8 +15,9 @@ public class UserDAOImpl implements UserDAO {
     MongoOperations mongoOperations;
 
     @Override
-    public void save(UserDTO user) {
+    public UserDTO save(UserDTO user) {
         mongoOperations.save(user);
+        return user;
     }
 
     @Override

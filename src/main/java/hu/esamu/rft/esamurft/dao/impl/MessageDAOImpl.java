@@ -2,12 +2,11 @@ package hu.esamu.rft.esamurft.dao.impl;
 
 import hu.esamu.rft.esamurft.dao.MessageDAO;
 import hu.esamu.rft.esamurft.dto.MessageDTO;
-import hu.esamu.rft.esamurft.servlet.ProtobufServlet;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class MessageDAOImpl implements MessageDAO {
@@ -24,4 +23,13 @@ public class MessageDAOImpl implements MessageDAO {
         return mongoOperations.findById(message, MessageDTO.class);
     }
 
+    @Override
+    public List<MessageDTO> findAll() {
+        return mongoOperations.findAll(MessageDTO.class);
+    }
+
+    @Override
+    public void deleteAll() {
+        mongoOperations.dropCollection(MessageDTO.class);
+    }
 }
