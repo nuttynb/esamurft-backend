@@ -21,8 +21,14 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public UserDTO findById(UserDTO user) {
+    public UserDTO findByDTO(UserDTO user) {
         return mongoOperations.findById(user, UserDTO.class);
+    }
+
+    @Override
+    public UserDTO findById(String id) {
+        Query searchUserQuery = new Query(Criteria.where("userId").is(id));
+        return mongoOperations.findOne(searchUserQuery, UserDTO.class);
     }
 
     @Override

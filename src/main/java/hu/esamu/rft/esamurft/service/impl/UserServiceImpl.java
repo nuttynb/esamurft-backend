@@ -17,7 +17,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO findById(UserDTO user) {
-        return userDAO.findById(user);
+    public UserDTO findByDTO(UserDTO user) {
+        return userDAO.findByDTO(user);
+    }
+
+    @Override
+    public UserDTO findById(String id) {
+        return userDAO.findById(id);
+    }
+
+    @Override
+    public UserDTO findByUsername(String username) {
+        return userDAO.findUserByUsername(username);
     }
 }
