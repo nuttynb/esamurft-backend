@@ -7,19 +7,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class RegisterServlet extends InitializedServlet {
+import static hu.esamu.rft.esamurft.util.Constants.*;
 
-    @Autowired
-    private UserService userService;
+@WebServlet("/register")
+public class RegisterServlet extends InitializedServlet {
 
     private static Logger LOG = LoggerFactory.getLogger(RegisterServlet.class);
 
-    private static final String USERNAME_KEY = "username";
-    private static final String PASSWORD_KEY = "password";
+    @Autowired
+    private UserService userService;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

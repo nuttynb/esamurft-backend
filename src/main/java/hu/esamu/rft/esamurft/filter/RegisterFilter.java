@@ -9,13 +9,18 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
+import static hu.esamu.rft.esamurft.util.Constants.*;
+
+@WebFilter("/register")
 public class RegisterFilter implements Filter {
+
     @Autowired
-    UserService userService;
+    private UserService userService;
+
     private static Logger LOG = LoggerFactory.getLogger(RegisterFilter.class);
-    private static final String USERNAME_KEY = "username";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -24,7 +29,7 @@ public class RegisterFilter implements Filter {
 
         AutowireCapableBeanFactory autowireCapableBeanFactory = webApplicationContext.getAutowireCapableBeanFactory();
 
-        autowireCapableBeanFactory.configureBean(this, "userServiceImpl");
+        autowireCapableBeanFactory.configureBean(this, USER_SERVICE_BEAN_NAME);
     }
 
     @Override

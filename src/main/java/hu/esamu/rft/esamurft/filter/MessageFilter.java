@@ -6,8 +6,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
+@WebFilter("/message")
 public class MessageFilter implements Filter {
     private static Logger LOG = LoggerFactory.getLogger(MessageFilter.class);
 

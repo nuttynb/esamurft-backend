@@ -3,40 +3,9 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/SpringConfig.xml</param-value>
     </context-param>
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <servlet>
-        <servlet-name>messageServlet</servlet-name>
-        <servlet-class>hu.esamu.rft.esamurft.servlet.MessageServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>messageServlet</servlet-name>
-        <url-pattern>/message</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>registerServlet</servlet-name>
-        <servlet-class>hu.esamu.rft.esamurft.servlet.RegisterServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>registerServlet</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
 
-    <filter>
-        <filter-name>messageFilter</filter-name>
-        <filter-class>hu.esamu.rft.esamurft.filter.MessageFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>messageFilter</filter-name>
-        <url-pattern>/message</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>registerFilter</filter-name>
-        <filter-class>hu.esamu.rft.esamurft.filter.RegisterFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>registerFilter</filter-name>
-        <url-pattern>/register</url-pattern>
-    </filter-mapping>
 </web-app>
