@@ -16,4 +16,23 @@
         <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
     </bean>
 
+    <bean id="myProperties"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="CLIENT_ID">111380810716-c8ri04103gushfoc0crei2e0mshvpuod.apps.googleusercontent.com</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="netHttpTransport" class="com.google.api.client.http.javanet.NetHttpTransport"/>
+    <bean id="jacksonFactory" class="com.google.api.client.json.jackson2.JacksonFactory"/>
+
+    <bean id="googleAuthServiceImpl" class="hu.esamu.rft.esamurft.service.impl.GoogleAuthServiceImpl">
+        <property name="clientId" value="${CLIENT_ID}"/>
+        <property name="httpTransport" ref="netHttpTransport"/>
+        <property name="jsonFactory" ref="jacksonFactory"/>
+    </bean>
+
+
 </beans>
